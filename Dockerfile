@@ -1,6 +1,15 @@
 FROM python:3.8-slim-buster
 
-RUN apt update -y && apt install awscli -y
+# Install build tools and dependencies
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    gcc \
+    libzstd-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+# Upgrade pip and setuptools
+RUN pip install --upgrade pip setuptools
+
 WORKDIR /app
 
 COPY . /app
