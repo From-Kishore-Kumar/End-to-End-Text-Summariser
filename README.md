@@ -1,43 +1,43 @@
-# End-to-End Text Summarizer (Hugging Face â€¢ FastAPI â€¢ Docker â€¢ AWS CI/CD)
+# End-to-End Text Summarizer (Hugging Face, FastAPI, Docker, AWS CI/CD)
 
 This repository implements a complete text summarization solution, from data ingestion and model fine-tuning to production deployment and continuous delivery.
 
 ## Key Features
 
 - **Generative AI Fine-Tuning**  
-  â€¢ Fine-tuned a Pegasus summarization model on the SAMSum conversational dataset using Hugging Faceâ€™s Trainer API  
-  â€¢ Configured custom prompt templates and hyperparameters (warmup steps, gradient accumulation) to optimize summary coherence and length
+    Fine-tuned a Pegasus summarization model on the SAMSum conversational dataset using Hugging Face Trainer API  
+    Configured custom prompt templates and hyperparameters (warmup steps, gradient accumulation) to optimize summary coherence and length
 
 - **Modular ML Pipelines**  
-  â€¢ Built reusable components for data ingestion, validation, transformation, training, and evaluation using a configuration-driven design  
-  â€¢ Managed experiment parameters via `config.yaml` and `params.yaml`, enabling reproducible training runs
+    Built reusable components for data ingestion, validation, transformation, training, and evaluation using a configuration-driven design  
+    Managed experiment parameters via `config.yaml` and `params.yaml`, enabling reproducible training runs
 
 - **Production-Grade API**  
-  â€¢ Developed a FastAPI application (`app.py`) with structured endpoints for summarization requests  
-  â€¢ Implemented robust logging, exception handling, and health checks for real-time monitoring
+    Developed a FastAPI application (`app.py`) with structured endpoints for summarization requests  
+    Implemented robust logging, exception handling, and health checks for real-time monitoring
 
 - **Containerization & Deployment**  
-  â€¢ Dockerized the application and model artifacts for consistent environments  
-  â€¢ Designed GitHub Actions workflows to build Docker images, push to AWS ECR, and deploy to EC2 as a self-hosted runner  
-  â€¢ Leveraged IAM roles with least-privilege policies for secure ECR and EC2 operations
+    Dockerized the application and model artifacts for consistent environments  
+    Designed GitHub Actions workflows to build Docker images, push to AWS ECR, and deploy to EC2 as a self-hosted runner  
+    Leveraged IAM roles with least-privilege policies for secure ECR and EC2 operations
 
 ## Repository Structure
 
 ```
 .
-â”œâ”€â”€ config.yaml                 # Pipeline component configuration
-â”œâ”€â”€ params.yaml                 # Hyperparameters and paths
-â”œâ”€â”€ src/
-â”‚   â”œâ”€â”€ config/                 # Configuration manager
-â”‚   â”œâ”€â”€ components/             # Data, model, and evaluation modules
-â”‚   â”œâ”€â”€ pipelines/              # Orchestrated training & inference pipelines
-â”‚   â”œâ”€â”€ app.py                  # FastAPI application
-â”‚   â””â”€â”€ main.py                 # CLI entry point
-â”œâ”€â”€ requirements.txt            # Python dependencies
-â”œâ”€â”€ Dockerfile                  # Container build instructions
-â”œâ”€â”€ .github/
-â”‚   â””â”€â”€ workflows/              # CI/CD definitions (GitHub Actions)
-â””â”€â”€ README.md                   # Project documentation
+config.yaml                 # Pipeline component configuration
+params.yaml                 # Hyperparameters and paths
+src/
+    config/                 # Configuration manager
+    components/             # Data, model, and evaluation modules
+    pipelines/              # Orchestrated training & inference pipelines
+    app.py                  # FastAPI application
+    main.py                 # CLI entry point
+requirements.txt            # Python dependencies
+Dockerfile                  # Container build instructions
+.github/
+    workflows/              # CI/CD definitions (GitHub Actions)
+README.md                   # Project documentation
 ```
 
 ## Getting Started
